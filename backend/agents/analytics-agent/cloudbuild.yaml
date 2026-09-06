@@ -1,0 +1,17 @@
+steps:
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['install']
+
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['test']
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+      'build',
+      '-t',
+      'asia-south1-docker.pkg.dev/$PROJECT_ID/analytics-agent-repo/analytics-agent:latest',
+      '.'
+    ]
+
+images:
+  - 'asia-south1-docker.pkg.dev/$PROJECT_ID/analytics-agent-repo/analytics-agent:latest'

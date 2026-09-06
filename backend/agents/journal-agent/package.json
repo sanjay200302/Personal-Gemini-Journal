@@ -1,0 +1,23 @@
+{
+  "name": "journal-agent",
+  "version": "1.0.0",
+  "description": "Journal Agent for Personal Gemini Journal",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "dependencies": {
+    "@google-cloud/secret-manager": "^5.6.0",
+    "cors": "^2.8.6",
+    "express": "^4.22.2",
+    "express-rate-limit": "^6.11.2",
+    "firebase-admin": "^11.11.1",
+    "node-fetch": "^2.6.7",
+    "winston": "^3.19.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

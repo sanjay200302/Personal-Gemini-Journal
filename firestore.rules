@@ -1,0 +1,51 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // Journals collection
+    match /journals/{docId} {
+      allow read: if isAuthenticated() && resource.data.userId == request.auth.uid;
+      allow delete: if isAuthenticated() && request.auth.uid == resource.data.userId;
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update: if isAuthenticated() && (resource.data.userId == request.auth.uid) && (request.resource.data.userId == request.auth.uid);
+    }
+
+    // Analytics collection
+    match /analytics/{docId} {
+      allow read, delete: if isAuthenticated() && (resource == null || resource.data.userId == request.auth.uid);
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update: if isAuthenticated() && (resource.data.userId == request.auth.uid) && (request.resource.data.userId == request.auth.uid);
+    }
+
+    // Moods collection
+    match /moods/{docId} {
+      allow read, delete: if isAuthenticated() && (resource == null || resource.data.userId == request.auth.uid);
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update: if isAuthenticated() && (resource.data.userId == request.auth.uid) && (request.resource.data.userId == request.auth.uid);
+    }
+
+    // Growth collection
+    match /growth/{docId} {
+      allow read, delete: if isAuthenticated() && (resource == null || resource.data.userId == request.auth.uid);
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update: if isAuthenticated() && (resource.data.userId == request.auth.uid) && (request.resource.data.userId == request.auth.uid);
+    }
+
+    // Capsules collection
+    match /capsules/{docId} {
+      allow read, delete: if isAuthenticated() && (resource == null || resource.data.userId == request.auth.uid);
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update: if isAuthenticated() && (resource.data.userId == request.auth.uid) && (request.resource.data.userId == request.auth.uid);
+    }
+
+    // User Settings (document ID = UID)
+    match /user_settings/{userId} {
+      allow read, write: if isAuthenticated() && request.auth.uid == userId;
+    }
+  }
+}

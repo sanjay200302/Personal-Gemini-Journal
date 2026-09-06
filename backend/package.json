@@ -1,0 +1,13 @@
+{
+  "name": "analytics-agent",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "dependencies": {
+    "firebase": "^12.18.0"
+  }
+}

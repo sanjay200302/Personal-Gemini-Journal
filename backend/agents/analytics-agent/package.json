@@ -1,0 +1,21 @@
+{
+  "name": "analytics-agent",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "firebase-admin": "^11.10.1",
+    "winston": "^3.10.0",
+    "cors": "^2.8.5",
+    "express-rate-limit": "^6.7.0",
+    "@google-cloud/secret-manager": "^5.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

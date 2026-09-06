@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=Outfit:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap');
+@import 'tailwindcss';
+@config '../tailwind.config.js';
+@import './styles/themes.css';
+
+@theme {
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-sans: 'Outfit', system-ui, sans-serif;
+  --font-mono: 'DM Mono', monospace;
+
+  --color-ground: #0a0b14;
+  --color-surface: #111220;
+  --color-card: #181929;
+  --color-card-hover: #1e1f33;
+  --color-border: #252640;
+  --color-violet: #7c6af7;
+  --color-violet-light: #a49af9;
+  --color-violet-dim: #4e3fc8;
+  --color-violet-glow: rgba(124, 106, 247, 0.15);
+  --color-amber: #f4a05a;
+  --color-amber-light: #f7c08a;
+  --color-rose: #e879a0;
+  --color-green: #4ade80;
+  --color-ink: #e2ddd4;
+  --color-ink-dim: #b4b0a7;
+  --color-muted: #5e5e80;
+  --color-muted-light: #8888aa;
+}
+
+/* Explicit Utility Fallbacks for Theme Variables */
+.bg-ground { background-color: var(--color-ground, #0a0b14) !important; }
+.bg-surface { background-color: var(--color-surface, #111220) !important; }
+.bg-card { background-color: var(--color-card, #181929) !important; }
+.border-border { border-color: var(--color-border, #252640) !important; }
+.text-ink { color: var(--color-ink, #e2ddd4) !important; }
+.text-ink-dim { color: var(--color-ink-dim, #b4b0a7) !important; }
+.text-muted-light { color: var(--color-muted-light, #8888aa) !important; }
+.text-violet-light { color: var(--color-violet-light, #a49af9) !important; }
+.bg-violet { background-color: var(--color-violet, #7c6af7) !important; }
+.bg-violet-glow { background-color: var(--color-violet-glow, rgba(124, 106, 247, 0.15)) !important; }
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #0a0b14;
+  color: #e2ddd4;
+  font-family: 'Outfit', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(124, 106, 247, 0.25) transparent;
+  box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(124, 106, 247, 0.25);
+  border-radius: 2px;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes wave {
+  0%, 100% { height: 4px; }
+  50% { height: 20px; }
+}
+
+.animate-fade-up,
+.fade-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  animation: fade-up 0.5s ease forwards;
+}
+
+.aura-glow {
+  box-shadow: 0 0 40px rgba(124, 106, 247, 0.2), 0 0 80px rgba(124, 106, 247, 0.08);
+}
+
+.aura-text-glow {
+  text-shadow: 0 0 40px rgba(164, 154, 249, 0.4);
+}
