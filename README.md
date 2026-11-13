@@ -162,7 +162,7 @@ Frontend (React + Vite)
 
 ## Features Summary
 
-Bullet out the highlights so they stand out:
+
 
 - Secure Authentication with Firebase Auth
 - Journaling with text, photo, and voice support
